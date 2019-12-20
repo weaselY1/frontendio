@@ -72,7 +72,6 @@ self.addEventListener("activate", function(event) {
   );
 });
 
-Notification.requestPermission();
 
 // Notification.requestPermission().then((permission) => {
 //   if (permission === 'granted') {
