@@ -13,6 +13,7 @@ import LoginPage from './pages/Auth/Login';
 import SignupPage from './pages/Auth/Signup';
 import './App.css';
 
+
 class App extends Component {
   state = {
     showBackdrop: false,
@@ -28,6 +29,7 @@ class App extends Component {
     const token = localStorage.getItem('token');
     const expiryDate = localStorage.getItem('expiryDate');
     if (!token || !expiryDate) {
+      console.log('aaa');
       return;
     }
     if (new Date(expiryDate) <= new Date()) {
@@ -39,6 +41,7 @@ class App extends Component {
       new Date(expiryDate).getTime() - new Date().getTime();
     this.setState({ isAuth: true, token: token, userId: userId });
     this.setAutoLogout(remainingMilliseconds);
+    console.log('bbb');
   }
 
   mobileNavHandler = isOpen => {
@@ -210,6 +213,9 @@ class App extends Component {
       );
     }
     return (
+      // กรณี render กลับไปหลาย element ต้องมี element หุ้มให้มี element หลักตัวเดียว หัวไม่ต้องการใช้ div(หรืออาจจะตัวอื่นก็ได้)
+      // สามารถใช้ frangment แทนได้
+      // ถ้า this.state.showBackdrop เป็น true จะแสดง Backdrop component
       <Fragment>
         {this.state.showBackdrop && (
           <Backdrop onClick={this.backdropClickHandler} />
