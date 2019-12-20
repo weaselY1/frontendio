@@ -1,4 +1,4 @@
-var CACHE_NAME = "gih-cache";
+var CACHE_NAME = "gih-cache3";
 var CACHED_URLS = [
   "/index-offline.html",
   "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css",
