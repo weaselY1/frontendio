@@ -42,10 +42,13 @@
     -->
   <script src="/js/app.js"></script>
 
-  <!-- <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+  <script>
+    Notification.requestPermission();
+  </script>
+
+  <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
 
   <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-messaging.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
 
   <script>
     const firebaseConfig = {
@@ -55,13 +58,21 @@
       projectId: "testjs-d42fd",
       storageBucket: "testjs-d42fd.appspot.com",
       messagingSenderId: "771616290082",
-      appId: "1:771616290082:web:47983bf562f40e6eb8217b"
+      appId: "1:771616290082:web:47983bf562f40e6eb8217b",
+      messagingSenderId: '771616290082'
     };
     firebase.initializeApp(firebaseConfig);
 
+
     const messaging = firebase.messaging();
-    messaging.usePublicVapidKey("BJFmGk-GhC8OztaJdAVRrJwQhjE2CkiThpRbejJTSP4guSKPpNiwq2r3ZpzT_j32n7UCjRvr07GiA2EP6lWu0g0");
-  </script> -->
+
+    messaging.requestPermission().then(function() { return messaging.getToken(); }).then(function(token) { console.log(token); })
+    .catch(function(err) { console.log('error'); });
+
+    messaging.onMessage((payload) => {
+      console.log('Message received. ', payload);
+    });
+  </script>
 
 </body>
 

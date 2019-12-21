@@ -1,4 +1,4 @@
-var CACHE_NAME = "gih-cache3";
+var CACHE_NAME = "gih-cache";
 var CACHED_URLS = [
   "/index-offline.html",
   "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css",
@@ -72,11 +72,6 @@ self.addEventListener("activate", function(event) {
   );
 });
 
-
-// Notification.requestPermission().then((permission) => {
-//   if (permission === 'granted') {
-//     console.log('Notification permission granted.');
-//   } else {
-//     console.log('Unable to get permission to notify.');
-//   }
+// self.addEventListener("push", function() {
+//   self.registration.showNotification("Push message received");
 // });
