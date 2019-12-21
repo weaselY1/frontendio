@@ -15,3 +15,14 @@ firebase.initializeApp(firebaseConfig);
 
 
 const messaging = firebase.messaging();
+
+messaging.setBackgroundMessageHandler(function(payload) {
+  // Customize notification here
+  const title = 'Background Message Title';
+  const options = {
+    body: payload.data.status
+    // icon: '/firebase-logo.png'
+  };
+
+  return self.registration.showNotification(title, options);
+});
