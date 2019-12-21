@@ -63,12 +63,13 @@
     };
     firebase.initializeApp(firebaseConfig);
 
-
     const messaging = firebase.messaging();
 
+    // ต้องเป็น HTTPS ถึงจะใช้งานได้
     messaging.requestPermission().then(function() { return messaging.getToken(); }).then(function(token) { console.log(token); })
     .catch(function(err) { console.log('error'); });
 
+    // ต้องเป็น HTTPS ถึงจะใช้งานได้
     messaging.onMessage((payload) => {
       console.log('Message received. ', payload);
     });

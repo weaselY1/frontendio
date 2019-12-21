@@ -71,7 +71,3 @@ self.addEventListener("activate", function(event) {
     })
   );
 });
-
-self.addEventListener("push", function() {
-  self.registration.showNotification("Push message received");
-});
