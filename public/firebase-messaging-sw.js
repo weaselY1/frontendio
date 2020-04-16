@@ -1,3 +1,4 @@
+// เป็น serviceworker ของ firebase-message ใช้ได้เฉพาะการเชื่อมต่อแบบ HTTPS
 importScripts('https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js');
 importScripts('https://www.gstatic.com/firebasejs/7.6.1/firebase-messaging.js');
 

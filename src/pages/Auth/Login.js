@@ -63,6 +63,10 @@ class Login extends Component {
     });
   };
 
+  componentDidMount() {
+    console.log(this.props);
+  }
+
   render() {
     return (
       <Auth>

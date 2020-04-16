@@ -160,6 +160,8 @@ class App extends Component {
     this.setState({ error: null });
   };
 
+
+
   render() {
     let routes = (
       <Switch>
@@ -168,8 +170,13 @@ class App extends Component {
           exact
           render={props => (
             <LoginPage
+              // {...props} การใช้จุด ... 3 จุดนำหน้า object หรือ array เป็นการทำ duplication object หรือ array
+              // ในที่นี้คือ copy props แล้วส่งผ่าน เป็น props ผ่านไปยัง component LoginPage
+              // โดย props ในที่นี้จะมี match, location, staticContext,history ที่มาจากการส่ง request และ route URL
               {...props}
+              // ส่งผ่าน function loginHandler ไปในรูปแบบ props ของ component LoginPage
               onLogin={this.loginHandler}
+              // ส่งผ่าน state ไปในรูปแบบ props ของ component LoginPage
               loading={this.state.authLoading}
             />
           )}
@@ -240,7 +247,8 @@ class App extends Component {
               isAuth={this.state.isAuth}
             />
           }
-        />
+        >
+        </Layout>
         {routes}
       </Fragment>
     );
