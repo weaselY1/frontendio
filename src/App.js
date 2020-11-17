@@ -26,6 +26,10 @@ class App extends Component {
   };
 
   componentDidMount() {
+    // props ใน component ที่จัด routes ด้วย Route component เช่น Switch(react-router-dom) หรือ renderRoutes(react-router-config)
+    // จะมี props ตั้งต้นเป็น history, location, match ซึ่งเกียวข้องกับ route URL
+    console.log(this.props);
+
     const token = localStorage.getItem('token');
     const expiryDate = localStorage.getItem('expiryDate');
     if (!token || !expiryDate) {
@@ -138,6 +142,8 @@ class App extends Component {
       .then(resData => {
         console.log(resData);
         this.setState({ isAuth: false, authLoading: false });
+        // this.props.history.replace คือเปลี่ยน route URL ใช้ใน class component เท่านั้นใช้ใน component ที่เป็น hookup function ไม่ได้
+        // คล้ายกับ redirect แต่ redirect จะใช้ใน switch component
         this.props.history.replace('/');
       })
       .catch(err => {

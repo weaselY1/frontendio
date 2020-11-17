@@ -6,6 +6,7 @@ import './index.css';
 import App from './App';
 
 ReactDOM.render(
+  // <BrowserRouter> allows you to create multiple Routers
   <BrowserRouter>
     <App />
   </BrowserRouter>,

@@ -41,6 +41,7 @@ class Feed extends Component {
 
     this.loadPosts();
     const socket = openSocket('http://localhost:8080');
+    console.log(socket);
     socket.on('posts', data => {
       if (data.action === 'create') {
         this.addPost(data.post);
@@ -309,7 +310,8 @@ class Feed extends Component {
                 <Post
                   key={post._id}
                   id={post._id}
-                  author={post.creator.name}
+                  // **** แก้ไข้เมื่อ 17_4_20 ****
+                  // author={post.creator.name}
                   date={new Date(post.createdAt).toLocaleDateString('en-US')}
                   title={post.title}
                   image={post.imageUrl}
